@@ -12,5 +12,6 @@ service /test on new http:Listener(9090) {
         http:Client httpEndpoint = check new ("https://gorest.co.in");
         json getResponse = check httpEndpoint->get("/public/v2/users");
         log:printInfo((getResponse).toString());
+        return getResponse;
     }
 }
